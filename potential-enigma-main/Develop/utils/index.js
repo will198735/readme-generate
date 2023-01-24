@@ -1,25 +1,31 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateReadme =  ({ name }) =>
-`  # ${name}
+const generateReadme =  (name ) =>
+`  # ${name.title}
 
-## ${name}
+## Description
+ ${name.description}
 
-## ${name}
-
-
-## ${name}
-
-
-## ${name}
+## Tablet of content 
+${name.content}
 
 
-## ${name}
+## Intalletion 
+${name.installation}
+
+
+## Usage
+ ${name.usege}
+
+
+## Credits 
+${name.credits}
 
 
 
-## ${name}
+## License 
+${name.license}
 `;
 
 // TODO: Create an array of questions for user input
@@ -46,7 +52,7 @@ inquirer
 
       {
         type: 'input',
-        name: 'installetion',
+        name: 'installation',
         message: 'What are the steps required to install your project?',
       },
       {
@@ -69,7 +75,7 @@ inquirer
 .then((answers) => {
     const readme = generateReadme(answers);
 
-    fs.writeFile('readme.md', generateReadme, (err) =>
+    fs.writeFile('readme.md', readme, (err) =>
     err ? console.log(err) : console.log('Successfully created readme.md!')
   );
 });
