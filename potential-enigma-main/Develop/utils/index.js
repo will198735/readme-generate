@@ -4,19 +4,30 @@ const fs = require('fs');
 const generateReadme =  (name ) =>
 `  # ${name.title}
 
+
+## B
+
+
+
 ## Description
  ${name.description}
 
+
+
 ## Tablet of content 
 ${name.content}
+
+
 
 
 ## Intalletion 
 ${name.installation}
 
 
+
 ## Usage
  ${name.usege}
+
 
 
 ## Credits 
@@ -24,9 +35,12 @@ ${name.credits}
 
 
 
+
 ## License 
 ${name.license}
 `;
+
+
 
 // TODO: Create an array of questions for user input
 inquirer
@@ -35,6 +49,11 @@ inquirer
         type: 'input',
         name: 'title',
         message: 'What is the title of your project ?',
+      },
+      {
+        type: 'input',
+        name: 'linkedin',
+        message: 'Enter your LinkedIn URL.',
       },
 
       {
