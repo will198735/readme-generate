@@ -1,50 +1,14 @@
 // TODO: Include packages needed for this application
+const generateMarkdown = require('./generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateReadme =  (name ) =>
-`  # ${name.title}
-
-
-## B
-
-
-
-## Description
- ${name.description}
-
-
-
-## Tablet of content 
-${name.content}
-
-
-
-
-## Intalletion 
-${name.installation}
-
-
-
-## Usage
- ${name.usege}
-
-
-
-## Credits 
-${name.credits}
-
-
-
-
-## License 
-${name.license}
-`;
+// const path = require('path');
 
 
 
 // TODO: Create an array of questions for user input
-inquirer
-.prompt (  [
+
+ const questions = [
     {
         type: 'input',
         name: 'title',
@@ -90,24 +54,25 @@ inquirer
         message: 'provide your license?',
       },
 
-])
-.then((answers) => {
-    const readme = generateReadme(answers);
+]
+    // TODO: Create a function to write README file
+ function writeFile(fileName, data){
+  return fs.writeFileSync(path.join(process.cwd(), fileName),data);
+ }
+     // TODO: Create a function to initialize app
+     function init() {
+      inquirer.prompt(questions).then((inquirerResponce) => {
+        writeFile('README.md',generateMarkdown({...inquirerResponce}));
+      })
+     }
 
-    fs.writeFile('readme.md', readme, (err) =>
-    err ? console.log(err) : console.log('Successfully created readme.md!')
-  );
-});
-
-
-//     // TODO: Create a function to write README file
-    // const  generateReadme (fileName, data) {}
+         // Function call to initialize app
+         init();
     
-//     // TODO: Create a function to initialize app
-//     function init() {}
+ 
 
-//     // Function call to initialize app
-//     init();
-// })
+         
+    
+
 
 
