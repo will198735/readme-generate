@@ -2,7 +2,7 @@
 const generateMarkdown = require('./generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const path = require('path');
+const path = require('path');
 
 
 
@@ -57,12 +57,13 @@ const fs = require('fs');
 ]
     // TODO: Create a function to write README file
  function writeFile(fileName, data){
+  console.log(data)
   return fs.writeFileSync(path.join(process.cwd(), fileName),data);
  }
      // TODO: Create a function to initialize app
      function init() {
       inquirer.prompt(questions).then((inquirerResponce) => {
-        writeFile('README.md',generateMarkdown({...inquirerResponce}));
+       writeFile('Readme.md',generateMarkdown({...inquirerResponce}));
       })
      }
 

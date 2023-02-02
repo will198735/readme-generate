@@ -2,9 +2,9 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) { 
  const badge = {
-  'MIT': '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
-  'APACHE 2.0': '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)',
-  'GPL 3.0': '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)',
+  'MIT': `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`,
+  'APACHE 2.0': `![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`,
+  'GPL 3.0': `![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)`,
  }
  return badge[license]
 }
@@ -13,9 +13,9 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   const link = {
-    'MIT': 'https://opensource.org/licenses/MIT',
-    'APACHE 2.0': 'https://opensourc.org/Apache-2.0',
-    'GPL 3.0': 'https://www.gnu.org/licenses/-3.0',
+    'MIT': `https://opensource.org/licenses/MIT`,
+    'APACHE 2.0': `https://opensourc.org/Apache-2.0`,
+    'GPL 3.0': `https://www.gnu.org/licenses/-3.0`,
   }
   return link[license]
 }
@@ -33,13 +33,11 @@ function generateMarkdown(data)  {
   
   
   
-  ## Description
-  ${data.description}
+  ## Description ${data.description}
   
   
   
-  ## Tablet of content 
-  ${data.content}
+  ## Tablet of content ${data.content}
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
@@ -48,30 +46,25 @@ function generateMarkdown(data)  {
   
   
   
-  ## Intalletion 
-  ${data.installation}
+  ## Intalletion ${data.installation}
   
   
   
-  ## Usage
-  ${data.usege}
+  ## Usage${data.usege}
   
   
   
-  ## Credits 
-  ${data.credits}
+  ## Credits ${data.credits}
   
   
   
   
-  ## License 
-  ${data.license}
+  ## License ${data.license}
   
   `;
   
 }
 
-module.exports = {
+module.exports = 
+ generateMarkdown
 
-  generateMarkdown,
-}
